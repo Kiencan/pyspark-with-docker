@@ -86,7 +86,7 @@ Như vậy bước cài đặt đã thành công và trong các bước sau ta s
 
 Ta sẽ tạo một cơ sở dữ liệu ở đây. Dự án đã chuẩn bị một file createdb.ipynb giúp ta tạo ra một cơ sở dữ liệu SQLite bằng sqlite3.
 
-'''
+```
 import sqlite3
 import random
 import string
@@ -114,7 +114,7 @@ data.to_sql('bank', conn, if_exists='append', index=False)
 # Commit and close the connection
 conn.commit()
 conn.close()
-'''
+```
 
 Đầu tiên ta tạo một database có tên là bank. Sau đó tạo một Table cũng tên là bank bao gồm có 5 cột: Date, Domain, Location, Value và Transaction_count. Ta insert vào bảng một file bankdataset.csv bao gồm 1004480 dòng. Đây là một bộ dataset thống kê tổng số giao dịch và tổng số tiền của các giao dịch tại các thành phố ở Ấn Độ, với mỗi dịch vụ khác nhau (như nhà hàng, đầu tư, bán lẻ, …) mỗi ngày trong năm 2022.
 
