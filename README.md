@@ -6,7 +6,7 @@ Mục tiêu của project này là cài đặt và chạy SparkSQL trong một D
 
 ## **Prerequisites**
 
-Trước khi bắt đầu project, hãy đảm bảo rằng máy tính của bạn đủ bộ nhớ (tối thiểu 30GB) và đã cài đặt Docker. Để Docker đơn giản, dự án sử dụng Docker Desktop với một giao diện dễ nhìn và dễ thực hiện. Bạn có thể tải về trên trang web [Docker Desktop](https://www.docker.com/products/docker-desktop/) tùy theo hệ điều hành máy sử dụng.
+Trước khi bắt đầu project, hãy đảm bảo rằng máy tính đủ bộ nhớ (tối thiểu 30GB) và đã cài đặt Docker. Để Docker đơn giản, dự án sử dụng Docker Desktop với một giao diện dễ nhìn và dễ thực hiện. Ta có thể tải về trên trang web [Docker Desktop](https://www.docker.com/products/docker-desktop/) tùy theo hệ điều hành máy sử dụng.
 
 <img src="./img/picture1.png">
 
@@ -54,7 +54,7 @@ EXPOSE 8888
 # Start Jupyter Notebook
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--no-browser"]
 ```
-Ở đây, dự án sử dụng một Docker image base từ [Docker Hub](https://hub.docker.com/) là OpenJDK, một image base phổ biến cho ứng dụng Java, sau đó cài đặt Python, Spark và Hadoop vào trong đó. Mục đích chung là chuẩn bị cho Pyspark, do đó bạn có thể thay đổi thứ tự cài đặt ví dụ như sử dụng image base cho Python sau đó cài đặt Java, Spark, Hadoop. Bên cạnh đó dự án cài đặt cơ sở dữ liệu SQLite và công cụ Pip để tải các gói thư viện trong Python.
+Ở đây, dự án sử dụng một Docker image base từ [Docker Hub](https://hub.docker.com/) là OpenJDK, một image base phổ biến cho ứng dụng Java, sau đó cài đặt Python, Spark và Hadoop vào trong đó. Mục đích chung là chuẩn bị cho Pyspark, do đó ta có thể thay đổi thứ tự cài đặt ví dụ như sử dụng image base cho Python sau đó cài đặt Java, Spark, Hadoop. Bên cạnh đó dự án cài đặt cơ sở dữ liệu SQLite và công cụ Pip để tải các gói thư viện trong Python.
 
 Tiếp theo, dự án cài đặt các Jupiter Notebook để thực hiện các câu lệnh dễ nhìn hơn. Cuối cùng đặt working directory, copy các file cần thiết và đặt cổng ra cho Jupter Notebook là 8888. Như vậy ta đã chuẩn bị các cài đặt cơ bản cho một Container.
 
