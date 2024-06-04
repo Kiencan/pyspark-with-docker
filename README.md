@@ -12,10 +12,9 @@ Trước khi bắt đầu project, hãy đảm bảo rằng máy tính đủ b�
 
 ## **Installation**
 
-**Bước 1:** Tạo một Dockerfile với nội dung như sau:
+**Bước 1:** Tạo một file `Dockerfile` với nội dung như sau:
 
 ```
-# Use an appropriate base image with Python and Java installed
 FROM openjdk:8-jdk
 
 # Set environment variables for Spark
@@ -60,11 +59,11 @@ Tiếp theo, dự án cài đặt các Jupiter Notebook để thực hiện các
 
 **Bước 2:** Xây dựng Docker Image:
 
-Để xây dựng Docker image ta sử dụng câu lệnh sau và đặt tên là “myspark”
+Để xây dựng Docker image ta sử dụng câu lệnh sau và đặt tên là `myspark`.
 ```
 docker build . -t myspark
 ```
-Sau đó, ta chạy Image đó với cổng 8888 và tên là “spark”.
+Sau đó, ta chạy Image đó với cổng 8888 và tên là `spark`.
 ```
 docker run -p 8888:8888 --name spark -d myspark
 ```
@@ -84,7 +83,7 @@ Như vậy bước cài đặt đã thành công và trong các bước sau ta s
 
 **Bước 1:** Tạo cơ sở dữ liệu:
 
-Ta sẽ tạo một cơ sở dữ liệu ở đây. Dự án đã chuẩn bị một file createdb.ipynb giúp ta tạo ra một cơ sở dữ liệu SQLite bằng sqlite3.
+Ta sẽ tạo một cơ sở dữ liệu ở đây. Dự án đã chuẩn bị một file `createdb.ipynb` giúp ta tạo ra một cơ sở dữ liệu SQLite bằng sqlite3.
 
 ```
 import sqlite3
@@ -116,7 +115,7 @@ conn.commit()
 conn.close()
 ```
 
-Đầu tiên ta tạo một database có tên là bank. Sau đó tạo một Table cũng tên là bank bao gồm có 5 cột: Date, Domain, Location, Value và Transaction_count. Ta insert vào bảng một file bankdataset.csv bao gồm 1004480 dòng. Đây là một bộ dataset thống kê tổng số giao dịch và tổng số tiền của các giao dịch tại các thành phố ở Ấn Độ, với mỗi dịch vụ khác nhau (như nhà hàng, đầu tư, bán lẻ, …) mỗi ngày trong năm 2022.
+Đầu tiên ta tạo một database có tên là bank. Sau đó tạo một Table cũng tên là bank bao gồm có 5 cột: Date, Domain, Location, Value và Transaction_count. Ta insert vào bảng một file `bankdataset.csv` bao gồm 1004480 dòng. Đây là một bộ dataset thống kê tổng số giao dịch và tổng số tiền của các giao dịch tại các thành phố ở Ấn Độ, của các dịch vụ khác nhau (như nhà hàng, đầu tư, bán lẻ, …) mỗi ngày trong năm 2022.
 
 Kiểm tra chắc chắn xem file `bank.db` đã được tạo ra chưa. Sau đó qua bước tiếp theo.
 
