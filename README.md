@@ -141,6 +141,7 @@ df = spark.read.format('jdbc').options(driver='org.sqlite.JDBC', dbtable='bank',
 # Create operation
 from pyspark.sql import Row
 
+# Create a new row
 new_row = Row(Date='2/1/2023', Domain='INTERNATIONAL', Location='Bombay', Value=552250, Transaction_count=2345)
 
 # Convert the Row into a DataFrame
@@ -157,18 +158,22 @@ df.tail(10)
 # Read operation
 filtered_df = df.filter(df.Transaction_count > 2000)
 
-filtered_df.show(10)
-print("Số lượng thành phố có số giao dịch trên 2000 là: ", filtered_df.count())
+# Search the number of cities has more than 2000 transactions
+filtered_df.show()
+print("Số thành phố có trên 2000 giao dịch: ", filtered_df.count())
 ```
 - Với thao tác Update:
 ```
 # Update operation
 from pyspark.sql.functions import when
 
-# Assuming `df` is your existing DataFrame representing the "bank" table
-# Update the DataFrame to change the Value and Transaction_count columns
-df = df.withColumn('Value', when((df.Date == '2/1/2023') & (df.Domain == 'INTERNATIONAL') & (df.Location == 'Bombay'), 50000).otherwise(df.Value)) \
-               .withColumn('Transaction_count', when((df.Date == '2/1/2023') & (df.Domain == 'INTERNATIONAL') & (df.Location == 'Bombay'), 2000).otherwise(df.Transaction_count))
+# Update the last row column with Value = 500000 and Transaction_count = 2000
+df = df.withColumn('Value', when((df.Date == '2/1/2023') & 
+                                 (df.Domain == 'INTERNATIONAL') & 
+                                 (df.Location == 'Bombay'), 50000).otherwise(df.Value)) \
+               .withColumn('Transaction_count', when((df.Date == '2/1/2023') & 
+                                                     (df.Domain == 'INTERNATIONAL') & 
+                                                     (df.Location == 'Bombay'), 2000).otherwise(df.Transaction_count))
 
 # Show the updated DataFrame
 df.tail(10)
@@ -177,7 +182,11 @@ df.tail(10)
 ```
 # Delete Operation
 df.head(5)
-df = df.filter(~((df.Date == '1/1/2022') & (df.Domain == 'RESTRAUNT') & (df.Location == 'Bhuj') & (df.Value == 365554) & (df.Transaction_count == 1932)))
+df = df.filter(~((df.Date == '1/1/2022') & 
+                 (df.Domain == 'RESTRAUNT') & 
+                 (df.Location == 'Bhuj') & 
+                 (df.Value == 365554) & 
+                 (df.Transaction_count == 1932))) # Try delete the first row
 
 # Show the filtered DataFrame
 df.head(5)
