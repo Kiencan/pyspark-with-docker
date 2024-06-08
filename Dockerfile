@@ -1,25 +1,18 @@
-# Use an appropriate base image with Python and Java installed
+# Use an image of Java
 FROM openjdk:8-jdk
 
-# Set environment variables for Spark
-ENV SPARK_VERSION=3.1.2
-ENV HADOOP_VERSION=3.2
-
-# Install necessary dependencies
+# Install python, sqlite3 and some necessary tool
 RUN apt-get update && \
     apt-get install -y wget python3 python3-pip sqlite3
 
 # Install Spark
-RUN wget https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
-    tar xvf spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
-    mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} /opt/spark && \
-    rm spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
+RUN wget https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz && \
+    tar xvf spark-3.5.1-bin-hadoop3.tgz && \
+    mv spark-3.5.1-bin-hadoop3 /opt/spark && \
+    rm spark-3.5.1-bin-hadoop3.tgz
 
 # Install PySpark and Jupyter
 RUN pip3 install pyspark notebook pandas
-
-# Download and place SQLite JDBC driver
-RUN wget https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.46.0.0/sqlite-jdbc-3.46.0.0.jar -P /opt/spark/jars
 
 # Add Spark to PATH
 ENV PATH=$PATH:/opt/spark/bin
