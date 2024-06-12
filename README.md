@@ -65,11 +65,21 @@ Khi đó trong Docker Desktop sẽ xuất hiện một Image như sau:
 
 <img src="./img/picture2.png">
 
-Chọn vào Image đó, ta sẽ tìm được một đường link truy cập vào Jupyter Notebook.
+Chọn vào Image đó, ta sẽ tìm được một đường link truy cập vào  trang chủ Jupyter Notebook.
 
 <img src="./img/picture3.png">
 
+Ở đây ta cần token để đăng nhập máy chủ localhost để truy cập Jupyter Notebook.
+
 <img src="./img/picture4.png">
+
+Ta có thể tìm token ở Docker Desktop bằng cách tìm đến một đường link như trong hình. Ví dụ đường link ở đây là: `http://127.0.0.1:8888/tree?token=58751512352a57fd368dab1606423f4c6b281669cb3a2764`, token chính là `58751512352a57fd368dab1606423f4c6b281669cb3a2764`.
+
+<img src="./img/picture5.png">
+
+Sau khi có được token, ta Log in để truy cập tới Jupyter Notebook.
+
+<img src="./img/picture6.png">
 
 Như vậy bước cài đặt đã thành công và trong các bước sau ta sẽ thực hiện một số các câu lệnh truy vấn trong Pyspark.
 
@@ -113,7 +123,7 @@ conn.close()
 
 Kiểm tra chắc chắn xem file `bank.db` đã được tạo ra chưa. Sau đó qua bước tiếp theo.
 
-<img src="./img/picture5.png">
+<img src="./img/picture7.png">
 
 **Bước 2:** Kết nối với database
 
