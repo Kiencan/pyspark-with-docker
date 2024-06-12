@@ -69,9 +69,10 @@ Chọn vào Image đó, ta sẽ tìm được một đường link truy cập v�
 
 <img src="./img/picture3.png">
 
-Ở đây ta cần token để đăng nhập máy chủ localhost để truy cập Jupyter Notebook.
-
 <img src="./img/picture4.png">
+
+
+Ở đây ta cần token đăng nhập máy chủ localhost để truy cập Jupyter Notebook.
 
 Ta có thể tìm token ở Docker Desktop bằng cách tìm đến một đường link như trong hình. Ví dụ đường link ở đây là: `http://127.0.0.1:8888/tree?token=58751512352a57fd368dab1606423f4c6b281669cb3a2764`, token chính là `58751512352a57fd368dab1606423f4c6b281669cb3a2764`.
 
@@ -136,6 +137,8 @@ df = spark.read.format('jdbc').options(driver='org.sqlite.JDBC', dbtable='bank',
 ```
 
 Để kết nối với database SQLite, dự án sử dụng một chuẩn API để tương tác với cơ sở dữ liệu có tên là JDBC driver. Cụ thể dự án sử dụng sqlite jdbc driver 3.46.0.0.
+
+Nếu quá trình set up chạy lâu (Khoảng 10 phút mà chưa kết nối được), hãy refresh trang và chạy lại.
 
 **Bước 3:** Thực hiện các thao tác CRUD:
 
